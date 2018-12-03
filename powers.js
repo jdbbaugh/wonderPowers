@@ -1,17 +1,20 @@
-flightHandlerFunction = (toggleClass) => {
-    let removeSectionClass = document.getElementById('flight');
+
+handlerFunction = (toggleClass, target) => {
+    console.log(target[1]);
+    let removeSectionClass = document.getElementById(target[1]);
     removeSectionClass.classList.replace('disabled', toggleClass);
+    
 }
 
-mindReadingFunction = (toggleClass) => {
-    let removeSectionClass = document.getElementById('mindreading');
-    removeSectionClass.classList.replace('disabled', toggleClass);
-}
+// mindReadingFunction = (toggleClass) => {
+//     let removeSectionClass = document.getElementById('mindreading');
+//     removeSectionClass.classList.replace('disabled', toggleClass);
+// }
 
-xRayFunction = (toggleClass) => {
-    let removeSectionClass = document.getElementById('xray');
-    removeSectionClass.classList.replace('disabled', toggleClass);
-}
+// xRayFunction = (toggleClass) => {
+//     let removeSectionClass = document.getElementById('xray');
+//     removeSectionClass.classList.replace('disabled', toggleClass);
+// }
 
 
 selectAllFunction = (toggleClasses) => {
@@ -29,16 +32,16 @@ reset = (toggleClasses) => {
 }
 
 
-document.querySelector("#activate-flight").addEventListener('click', function() {
-    flightHandlerFunction('enabled');
+document.getElementById("activate-flight").addEventListener('click', function() {
+    handlerFunction('enabled', event.target.id.split("-"));
 });
 
 document.querySelector("#activate-mindreading").addEventListener('click', function() {
-    mindReadingFunction('enabled');
+    handlerFunction('enabled', event.target.id.split("-"));
 });
 
 document.querySelector("#activate-xray").addEventListener('click', function() {
-    xRayFunction('enabled');
+    handlerFunction('enabled', event.target.id.split("-"));
 });
 
 document.querySelector('#activate-all').addEventListener('click', function() {
